@@ -1,10 +1,8 @@
 ---
 import Layout from '@layouts/Layout.astro'
-import ChatContainer from '@components/ChatContainer.tsx'
+import Banner from '@components/banner.astro'
 ---
 
 <Layout title="Chat Bot 🤖">
-  <section class="flex flex-1 flex-col justify-end py-5">
-    <ChatContainer client:load />
-  </section>
+  <Banner />
 </Layout>
