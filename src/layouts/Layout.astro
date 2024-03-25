@@ -1,5 +1,4 @@
 ---
-import Header from '@components/Header.astro'
 interface Props {
   title: string
 }
@@ -27,7 +26,6 @@ const { title } = Astro.props
     <meta name="description" content="A description of your page" />
   </head>
   <body class="flex flex-col h-screen bg-gray-900 text-gray-50">
-    <Header />
     <section class="flex flex-1 flex-col mx-5 sm:mx-10">
       <slot />
     </section>
