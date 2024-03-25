@@ -1,8 +1,10 @@
 ---
 import Layout from '@layouts/Layout.astro'
-import Banner from '@components/banner.astro'
+import Banner from '@components/Banner.astro'
+import VoiceInput from '@components/VoiceInput'
 ---
 
 <Layout title="Chat Bot 🤖">
   <Banner />
+  <VoiceInput client:load />
 </Layout>

@@ -7,7 +7,7 @@ import { initialProgrammerMessages, type Message } from '../messages'
 // 📌  Create AI instance
 // --------------------------------------------------------------------------------
 const openai = new OpenAI({
-  apiKey: import.meta.env.OPENAI_API_KEY,
+  // apiKey: import.meta.env.OPENAI_API_KEY,
 })
 
 type BodyType = {
