@@ -2,6 +2,7 @@ import { defineConfig } from 'astro/config'
 import tailwind from '@astrojs/tailwind'
 import vercel from '@astrojs/vercel/serverless'
 import react from '@astrojs/react'
+import serviceWorker from 'astrojs-service-worker'
 
 export default defineConfig({
   // ...
@@ -11,7 +12,10 @@ export default defineConfig({
       // alongside Tailwind's syntax
       nesting: true,
     }),
-    react(),
+    serviceWorker({
+      enableInDevelopment: true, // Enable service worker in development
+    }),
+    react(), // Enable react
   ],
   // --------------------------------------------------------------------------------
   // 📌  SSR for page generation & vercel host adaptor
