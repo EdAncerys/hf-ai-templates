@@ -49,46 +49,10 @@ export default function Button(props: Props) {
       const { data } = await axios.post('/api/v1/hf/xenova-text-to-speech', {
         prompt: msg,
       })
-      console.log('🚧 msg', msg)
       const float32 = data?.result?.audio
       const rate = data?.result?.sampling_rate
-      // const { wav, url } = createWaveFile(float32, rate)
-      console.log('🚧 float32', float32)
 
-      // setState((prev) => ({ ...prev, urlList: [...(prev.urlList ?? []), url] }))
-
-      // const arr = Object.values(audio)?.map((value) => value) as number[]
-      // const float32 = new Float32Array(audio)
-      // const int16Array = float32ToInt16(Array.from(float32))
-
-      // Create a Blob from Int16Array
-      // const blob = new Blob([int16Array.buffer], { type: 'audio/wav' })
-      // addAudioElement(blob)
-
-      // get url from blob
-      // const url = URL.createObjectURL(blob)
-
-      // Create an AudioContext
-      // const audioContext = new window.AudioContext()
-
-      // // Create an AudioBuffer
-      // const audioBuffer = audioContext.createBuffer(1, arr.length, rate)
-      // const audioBufferData = audioBuffer.getChannelData(0)
-      // audioBufferData.set(arr)
-
-      // // Convert AudioBuffer to PCM data
-      // audioContext.audioWorklet.addModule(
-      //   'data:application/javascript,audioWorkletProcessor=(()=>{return class extends AudioWorkletProcessor{process(inputs,outputs){outputs[0].forEach(channel=>channel.set(inputs[0][0]));return true;}}})();',
-      // )
-      // const pcmData = audioBuffer.getChannelData(0).buffer
-
-      // // Create a Blob from PCM data
-      // const blob = new Blob([pcmData], { type: 'audio/wav' })
-      // addAudioElement(blob)
-
-      // console.log('🚧 res', int16Array, int16Array.length)
-      // console.log('🚧 buffer ', int16Array.buffer)
-      // message.info(msg)
+      console.log('🚧 msg', msg)
     } catch (error: any) {
       console.error('error', error)
     } finally {
@@ -96,8 +60,9 @@ export default function Button(props: Props) {
     }
   }
 
-  async function customHandler() {
+  async function customHandler(e: any) {
     try {
+      e.preventDefault()
       setState((prev) => ({ ...prev, fetching: true }))
       const { data } = await axios.post('/api/data', {
         prompt: 'Hello, I am UI',
