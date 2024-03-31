@@ -96,6 +96,20 @@ export default function Button(props: Props) {
     }
   }
 
+  async function customHandler() {
+    try {
+      setState((prev) => ({ ...prev, fetching: true }))
+      const { data } = await axios.post('/api/data', {
+        prompt: 'Hello, I am UI',
+      })
+      console.log('🚧 data', data)
+    } catch (error: any) {
+      console.error('error', error)
+    } finally {
+      setState((prev) => ({ ...prev, fetching: false }))
+    }
+  }
+
   return (
     <section className="relative">
       <ServiceWorker />
@@ -168,6 +182,15 @@ export default function Button(props: Props) {
             )}
           >
             {state?.fetching ? '...' : 'Submit'}
+          </button>
+          <button
+            className={classNames(
+              'bg-blue-500 text-white px-4 py-2 rounded-md',
+              state?.fetching && 'opacity-50 cursor-not-allowed',
+            )}
+            onClick={customHandler}
+          >
+            {state?.fetching ? '...' : 'Custom API'}
           </button>
         </form>
       </section>

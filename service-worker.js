@@ -3,6 +3,7 @@
 // --------------------------------------------------------------------------------
 self.addEventListener('fetch', (event) => {
   if (event.request.url.includes('/api/data')) {
+    console.log('Service Worker: Fetch (data)', event.request.url)
     event.respondWith(handleAPICall(event.request))
   }
 })

@@ -4,7 +4,7 @@ type Props = {
   path?: string
 }
 
-const PATH = '../../lib/service-worker.js'
+const PATH = '../../service-worker.js'
 
 export default function ServiceWorker(props: Props) {
   useEffect(() => {
