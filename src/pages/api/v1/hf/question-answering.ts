@@ -20,12 +20,12 @@ export const POST: APIRoute = async ({
   const question = 'Where do I live?'
   const context = 'My name is Merve and I live in İstanbul.'
 
-  let res = await pipe(body?.prompt ?? question, body?.context ?? context)
+  let answer = await pipe(body?.prompt ?? question, body?.context ?? context)
 
   const response: any = {
     params: params,
     body,
-    res,
+    answer,
   }
 
   return new Response(JSON.stringify(response), {

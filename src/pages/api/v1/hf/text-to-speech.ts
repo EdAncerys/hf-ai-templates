@@ -24,10 +24,9 @@ export const POST: APIRoute = async ({
     model: 'facebook/mms-tts',
     inputs: 'text to generate speech from',
   })
-  console.log('🚧 _res', res)
 
   const response: any = {
-    // params: params,
+    params: params,
     body,
     res,
   }
